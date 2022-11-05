@@ -2,6 +2,7 @@ import json
 from flask import Flask
 from flask import render_template
 import requests
+from waitress import serve
 
 
 app = Flask(__name__)
@@ -16,6 +17,13 @@ def index():
 
 
 def load_data():
-    data = requests.get(cv_url)
-    print(data.content)
-    return json.loads(data.content)
+    try:
+        r = requests.get(cv_url)
+        print("Successfully loaded content")
+        return json.loads(r.content)
+    except requests.exceptions.RequestException as e:  # This is the correct syntax
+        raise SystemExit(e)
+
+
+if __name__ == "__main__":
+    serve(app, host='0.0.0.0', port=5050, url_scheme='https')
