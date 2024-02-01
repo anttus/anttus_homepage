@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Anttu Suhonen - DevOps | Cloud</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/fontawsom-all.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='images/apple-touch-icon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/favicon-32x32.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='images/favicon-16x16.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/android-chrome-192x192.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='images/android-chrome-512x512.png') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container-fluid overcover">
+      <div class="container profile-box">
+        <div class="row">
+          <div class="col-md-4 left-co">
+            <div class="left-side">
+              <div class="profile-info">
+                <img src={{ url_for('static', path='images/profile_pic.png') }} alt="profile picture" />
+                <h3>Anttu Suhonen</h3>
+                <span>DevOps | Cloud</span>
+              </div>
+              <h4 class="ltitle">Sites</h4>
+              <ul class="row social-link no-margin">
+                <li><a href="{{ data.misc["linkedin"] }}" target="_blank" alt="linkedin_profile"><i class="social-link fab fa-linkedin"></i></a></li>
+
+                <li><a href="{{ data.misc["github"] }}" target="_blank" alt="github_profile"><i class="social-link fab fa-github"></i></a></li>
+              </ul>
+
+              <h4 class="ltitle">Contact</h4>
+              <div class="contact-box pb0">
+                <div class="icon">
+                  <i class="fas fa-address-book"></i>
+                </div>
+                <div class="detail">{{ data.misc["email"] }}</div>
+              </div>
+              <div class="contact-box">
+                <div class="icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="detail">{{ data.misc["location"] }}</div>
+              </div>
+              <h4 class="ltitle">Hobbies</h4>
+              <ul class="hobby row">
+                <li>
+                  <a href="https://soundcloud.com/wind_child" target="_blank">
+                    <i class="fas fa-music"></i> <br />
+                    Music</a>
+                </li>
+
+                <li>
+                  <i class="fas fa-swimmer"></i> <br />
+                  Swimming
+                </li>
+                <li>
+                  <i class="fas fa-gamepad"></i> <br />
+                  Gaming
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-8 rt-div">
+            <div class="rit-cover">
+              <div class="hotkey">
+                <h1 class="rtitle">Anttu Suhonen</h1>
+                <small>DevOps & Cloud Engineer</small>
+              </div>
+              <h2 class="rit-titl"><img src={{ url_for('static', path='images/favicon-32x32.png') }} alt="profile picture" /> Profile</h2>
+              <div class="about">
+                <section class="textlist text-left">
+                  <p>{% for val in data.about.texts %} {{ val }} {% endfor %}</p>
+                </section>
+              </div>
+
+              <h2 class="rit-titl"><i class="fas fa-briefcase"></i> {{ data.experience.header }}</h2>
+              <div class="work-exp">
+                {% for val in data.experience.jobs %}
+                <p>
+                  <li>
+                    <h6><strong>{{ val.title }}</strong><span>{{ val.time }}</span></h6>
+                    <i>{{ val.place }}</i><br />
+                    {{ val.description }}<br /><br />
+                  </li>
+                </p>
+                {% endfor %}
+              </div>
+
+              <h2 class="rit-titl"><i class="fas fa-graduation-cap"></i> {{ data.education.header }}</h2>
+              <div class="education">
+                <ul class="row no-margin">
+                  {% for val in data.education.education %}
+                  <li class="col-md-6">
+                    <span>{{ val.time }}</span> <br />
+                    {{ val.degree }} - {{ val.place }}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <h2 class="rit-titl"><i class="fas fa-certificate"></i> {{ data.certifications.header }}</h2>
+              <div class="certification">
+                <ul class="row no-margin">
+                  {% for val in data.certifications.data %}
+                  <p>
+                    <li><i class="far fa-hand-point-right"></i> <a class="text-link" target="_blank" href="{{ val.link }}">{{ val.name }}</a></li>
+                  </p>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <h2 class="rit-titl"><i class="fas fa-certificate"></i> {{ data.projects.header }}</h2>
+              <div class="project">
+                <ul class="row no-margin">
+                  {% for val in data.projects.data %}
+                  <p>
+                    <li>
+                      {{ val.description }}<br /><i class="far fa-hand-point-right"></i>
+                      <a class="text-link" target="_blank" href="{{ val.link }}">{{ val.link_title }}</a><br /><br />
+                    </li>
+                  </p>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <h2 class="rit-titl"><i class="fas fa-users-cog"></i> {{ data.skills.header }}</h2>
+              <div class="skills">
+                {% for val in data.skills.skills %}
+                <br />
+                <strong>{{ val.name }}</strong>
+                <br /><br />
+                <ul class="row no-margin">
+                  <span
+                    >{% for skill in val.data %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                  </span>
+                  <br />
+                </ul>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
