@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests, json
+from uvicorn.workers import UvicornWorker
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -26,3 +27,8 @@ def load_data():
         return json.loads(r.content)
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
+
+class MyUvicornWorker(UvicornWorker):
+    CONFIG_KWARGS = {
+        "log_config": "logging.yaml",
+    }
