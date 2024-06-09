@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Anttu Suhonen - DevOps | Cloud</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawsom-all.min.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/android-chrome-192x192.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/fontawsom-all.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='images/apple-touch-icon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/favicon-32x32.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='images/favicon-16x16.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='images/android-chrome-192x192.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='images/android-chrome-512x512.png') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
   </head>
 
   <body>
@@ -25,7 +26,7 @@
           <div class="col-md-4 left-co">
             <div class="left-side">
               <div class="profile-info">
-                <img src={{ url_for('static', filename='images/profile_pic.png') }} alt="profile picture" />
+                <img src={{ url_for('static', path='images/profile_pic.png') }} alt="profile picture" />
                 <h3>Anttu Suhonen</h3>
                 <span>DevOps | Cloud</span>
               </div>
@@ -56,6 +57,11 @@
                     <i class="fas fa-music"></i> <br />
                     Music</a>
                 </li>
+                <li>
+                  <a href="https://soundcloud.com/friedland-project" target="_blank">
+                    <i class="fas fa-music"></i> <br />
+                    Music</a>
+                </li>
 
                 <li>
                   <i class="fas fa-swimmer"></i> <br />
@@ -74,7 +80,7 @@
                 <h1 class="rtitle">Anttu Suhonen</h1>
                 <small>DevOps & Cloud Engineer</small>
               </div>
-              <h2 class="rit-titl"><img src={{ url_for('static', filename='images/favicon-32x32.png') }} alt="profile picture" /> Profile</h2>
+              <h2 class="rit-titl"><img src={{ url_for('static', path='images/favicon-32x32.png') }} alt="profile picture" /> Profile</h2>
               <div class="about">
                 <section class="textlist text-left">
                   <p>{% for val in data.about.texts %} {{ val }} {% endfor %}</p>
