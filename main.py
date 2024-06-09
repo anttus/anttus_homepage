@@ -13,9 +13,12 @@ templates = Jinja2Templates(directory="templates")
 
 REDIS_HOST = "redis.home.svc.cluster.local"
 REDIS_PORT = 6379
-redis_client: Redis = Redis(
+r: Redis = Redis(
     host=REDIS_HOST, port=REDIS_PORT, decode_responses=True, db=0
 )
+
+r.ping()
+
 
 cv_url = (
     "https://gist.githubusercontent.com/anttus/d1285d208ef1cb4d54e27561251e38cd/raw/"
@@ -24,7 +27,7 @@ cv_url = (
 
 @app.get("/")
 async def root(request: Request):
-    page_view_count = redis_client.get("page_view_count") or 0
+    page_view_count = r.get("page_view_count") or 0
     return templates.TemplateResponse(
         request=request,
         name="index.html",
