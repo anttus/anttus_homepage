@@ -1,8 +1,8 @@
 from celery import Celery
 
-app = Celery(
-    "tasks", broker="redis://localhost:6379/0", backend="redis://localhost:6379/0"
-)
+REDIS_HOST = "redis://redis-service:6379/0"
+
+app = Celery("tasks", broker=REDIS_HOST, backend=REDIS_HOST)
 
 app.conf.update(
     result_expires=3600,

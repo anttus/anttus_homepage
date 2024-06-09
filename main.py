@@ -11,7 +11,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-REDIS_HOST = "redis.home.svc.cluster.local"
+REDIS_HOST = "redis-service"
 REDIS_PORT = 6379
 r: Redis = Redis(
     host=REDIS_HOST, port=REDIS_PORT, decode_responses=True, db=0
