@@ -1,4 +1,4 @@
-import requests, json
+import requests, json, os
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -6,19 +6,19 @@ from fastapi.templating import Jinja2Templates
 from uvicorn.workers import UvicornWorker
 from redis import Redis
 from tasks import process_data
+from dotenv import load_dotenv
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-REDIS_HOST = "redis-service"
-REDIS_PORT = 6379
-r: Redis = Redis(
-    host=REDIS_HOST, port=REDIS_PORT, decode_responses=True, db=0
-)
+load_dotenv()
+REDIS_HOST: str = os.getenv("REDIS_HOST") or "localhost"
+REDIS_PORT: int = 6379
 
-r.ping()
-
+if REDIS_HOST:
+    r = Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
+    r.ping()
 
 cv_url = (
     "https://gist.githubusercontent.com/anttus/d1285d208ef1cb4d54e27561251e38cd/raw/"

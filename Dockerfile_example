@@ -1,0 +1,34 @@
+FROM python:slim-bookworm AS builder
+
+LABEL Name="<insert_name_here>" Version="1.0"
+
+RUN pip install poetry==1.7.1
+
+ENV POETRY_NO_INTERACTION=1 \
+	POETRY_VIRTUALENVS_IN_PROJECT=1 \
+	POETRY_VIRTUALENVS_CREATE=1 \
+	POETRY_CACHE_DIR=/tmp/poetry_cache
+
+WORKDIR /
+
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry install --only main --no-root && rm -rf ${POETRY_CACHE_DIR}
+
+FROM python:slim-bookworm AS runtime
+
+ARG ENVIRONMENT
+ENV ENVIRONMENT=$ENVIRONMENT
+RUN echo "Environment: $ENVIRONMENT"
+
+ENV VIRTUAL_ENV=/.venv \
+	PATH="/.venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+
+COPY . ./
+
+EXPOSE 5050
+
+CMD [ "gunicorn", "-k", "main.MyUvicornWorker", "main:app", "--config", "gunicorn.config.py", "--access-logfile", "-", "--forwarded-allow-ips", "'*'"]
+
