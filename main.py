@@ -25,6 +25,14 @@ cv_url = (
 )
 
 
+def load_data():
+    try:
+        r = requests.get(cv_url)
+        return json.loads(r.content)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+
 @app.get("/")
 async def root(request: Request):
     page_view_count = r.get("page_view_count") or 0
@@ -35,12 +43,13 @@ async def root(request: Request):
     )
 
 
-def load_data():
-    try:
-        r = requests.get(cv_url)
-        return json.loads(r.content)
-    except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
+@app.get("/cv")
+async def cv(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="cv.html",
+        context={"data": load_data()},
+    )
 
 
 @app.post("/collect-data")

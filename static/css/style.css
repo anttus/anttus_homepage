@@ -3,10 +3,12 @@
   font-family: "mouse-300";
   src: url("../fonts/RobotoSlab-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "mouse-500";
   src: url("../fonts/RobotoSlab-Bold.ttf") format("truetype");
 }
+
 /* ===================================== Basic CSS ================================== */
 * {
   margin: 0px;
@@ -102,6 +104,27 @@ p {
   padding: 0px;
 }
 
+.main-headers {
+  text-align: center;
+  margin: 30px;
+}
+
+.main-social {
+  text-align: center;
+}
+
+.main-social-link {
+  color: #2f2f2f;
+  font-size: 30px;
+  padding: 15px;
+  width: 10%;
+}
+
+.main-social-link:hover {
+  font-size: 35px;
+  color: #2d73d2;
+}
+
 h1,
 h2,
 h3,
@@ -125,16 +148,19 @@ body {
   padding: 30px;
   margin: 0px;
 }
+
 .session-title h2 {
   width: 100%;
   text-align: center;
 }
+
 .session-title p {
   max-width: 850px;
   text-align: center;
   float: none;
   margin: auto;
 }
+
 .session-title span {
   float: right;
   font-style: italic;
@@ -145,12 +171,14 @@ body {
   padding-left: 0px;
   margin-bottom: 30px;
 }
+
 .inner-title h2 {
   width: 100%;
   text-align: center;
   font-size: 2rem;
   font-family: "slab", Arial, Helvetica, sans-serif;
 }
+
 .inner-title p {
   width: 100%;
   text-align: center;
@@ -161,31 +189,37 @@ body {
   text-align: center;
   padding-top: 160px;
 }
+
 .page-nav ul {
   float: none;
   margin: auto;
 }
+
 .page-nav h2 {
   font-size: 36px;
   width: 100%;
   color: #444;
 }
+
 @media screen and (max-width: 600px) {
   .page-nav h2 {
     font-size: 26px;
   }
 }
+
 .page-nav ul li {
   float: left;
   margin-right: 10px;
   margin-top: 10px;
   font-size: 16px;
 }
+
 .page-nav ul li i {
   width: 30px;
   text-align: center;
   color: #444;
 }
+
 .page-nav ul li a {
   color: #444;
 }
@@ -194,14 +228,17 @@ body {
   background-color: #2d73d2;
   border-color: #2f2f2f;
 }
+
 .btn-success:hover {
   background-color: #2f2f2f !important;
   border-color: #2f2f2f !important;
 }
+
 .btn-success:active {
   background-color: #2f2f2f !important;
   border-color: #2f2f2f !important;
 }
+
 .btn-success:focus {
   background-color: #2f2f2f !important;
   border-color: #2f2f2f !important;
@@ -212,14 +249,17 @@ body {
   background-color: #f2f2f2;
   border-color: #f2f2f2;
 }
+
 .btn-info:hover {
   background-color: #f2f2f2 !important;
   border-color: #f2f2f2 !important;
 }
+
 .btn-info:active {
   background-color: #f2f2f2 !important;
   border-color: #f2f2f2 !important;
 }
+
 .btn-info:focus {
   background-color: #f2f2f2 !important;
   border-color: #f2f2f2 !important;
@@ -243,6 +283,7 @@ body {
 .text-link:link {
   color: #0081ac;
 }
+
 .text-link:visited {
   color: #0081ac;
 }
@@ -265,6 +306,7 @@ body {
   background-color: #f8f8f8;
   margin-bottom: 20px;
 }
+
 .form-control:focus {
   background-color: #fff;
   border-color: #ccc;
@@ -273,6 +315,7 @@ body {
 .container {
   max-width: 1100px;
 }
+
 @media screen and (max-width: 1060px) {
   .container {
     max-width: 100%;
@@ -290,23 +333,27 @@ body {
   padding-right: 20px;
   border-radius: 5px;
 }
+
 @media screen and (max-width: 1060px) {
   .profile-box {
     margin: 0px;
   }
 }
+
 @media screen and (max-width: 924px) {
   .profile-box {
     padding: 0px;
     padding-right: 10px;
   }
 }
+
 .profile-box .left-side {
   background-color: #2d73d2;
   color: #f2f2f2;
   padding: 20px 20px;
   border-radius: 0px 0px 10px 10px;
 }
+
 .profile-box .left-side .profile-info {
   /* padding: 5px; */
   padding-bottom: 5px;
@@ -323,29 +370,36 @@ body {
   border-color: #000;
   border-width: thin; */
 }
+
 .profile-box .left-side .profile-info img {
   width: 100%;
 }
+
 .profile-box .left-side .profile-info h3 {
   font-size: 1rem;
   margin-bottom: 0px;
   padding: 5px;
 }
+
 .profile-box .left-side .profile-info span {
   font-size: 0.9rem;
 }
+
 .profile-box .left-side .ltitle {
   padding: 10px;
   font-size: 1.1rem;
   border-bottom: 1px solid #fff;
 }
+
 .profile-box .left-side .contact-box {
   display: flex;
   padding: 10px 0px;
 }
+
 .profile-box .left-side .contact-box .icon {
   padding: 10px;
 }
+
 .profile-box .left-side .contact-box .icon i {
   padding: 10px;
   border: 1px solid #fff;
@@ -354,31 +408,40 @@ body {
   height: 40px;
   text-align: center;
 }
+
 .profile-box .left-side .contact-box .detail {
   font-size: 0.8rem;
   margin: auto 0;
 }
+
 .profile-box .left-side .pb0 {
   padding-bottom: 0px;
 }
+
 .profile-box .left-side .social-link li {
   padding: 10px 15px;
 }
+
 .social-link:hover {
   color: #73d22d;
 }
+
 .profile-box .left-side .refer-cov {
   padding: 8px;
 }
+
 .profile-box .left-side .refer-cov b {
   font-size: 0.9rem;
 }
+
 .profile-box .left-side .refer-cov p {
   font-size: 0.8rem;
 }
+
 .profile-box .left-side .refer-cov span {
   font-size: 0.9rem;
 }
+
 .profile-box .left-side .hobby li {
   float: left;
   font-size: 0.9rem;
@@ -386,6 +449,7 @@ body {
   text-align: center;
   width: 33.33%;
 }
+
 .profile-box .left-side .hobby li i {
   font-size: 22px;
   margin-bottom: 15px;
@@ -400,6 +464,7 @@ body {
     padding-left: 0px;
   }
 }
+
 @media screen and (max-width: 767px) {
   .left-co {
     padding-right: 0px;
@@ -409,36 +474,43 @@ body {
     padding-left: 30px;
   }
 }
+
 .rit-cover .hotkey {
   text-align: center;
   padding: 30px 20px;
 }
+
 .rit-cover .hotkey h1 {
   width: 100%;
   text-align: center;
   color: #4d4d4d;
 }
+
 .rit-cover .hotkey small {
   font-size: 1rem;
   color: #9c9898;
   margin-top: -30px;
   font-weight: 600;
 }
+
 .rit-cover .rit-titl {
   padding: 10px;
   border-bottom: 2px solid #ccc;
   font-size: 1.1rem;
 }
+
 .rit-cover .rit-titl i {
   font-size: 18px;
   margin-right: 5px;
 }
+
 .rit-cover .about {
   font-size: 0.9rem;
   text-align: justify;
   text-indent: 15px;
   padding: 5px 0px;
 }
+
 .rit-cover .about .btn-link li {
   float: left;
   margin-top: 15px;
@@ -449,6 +521,7 @@ body {
   margin-bottom: 10px;
   color: #888;
 }
+
 @media screen and (max-width: 483px) {
   .rit-cover .about .btn-link li {
     margin-right: 5px !important;
@@ -456,50 +529,64 @@ body {
     margin-bottom: 10px;
   }
 }
+
 .rit-cover .about .btn-link li i {
   margin-top: 5px;
   margin-left: -28px;
 }
+
 .rit-cover .about .btn-link li a {
   color: #888;
 }
+
 .rit-cover .work-exp {
   padding: 5px 0px;
 }
+
 .rit-cover .work-exp h6 {
   font-size: 0.9rem;
   margin-bottom: 0px;
 }
+
 .rit-cover .work-exp h6 span {
   float: right;
   font-size: 0.8rem;
 }
+
 .rit-cover .work-exp i {
   font-size: 0.9rem;
 }
+
 .rit-cover .work-exp ul {
   padding: 5px 0px;
 }
+
 .rit-cover .work-exp ul li {
   font-size: 0.9rem;
   padding-left: 5px;
 }
+
 .rit-cover .work-exp ul li i {
   margin-right: 5px;
 }
+
 .rit-cover .education {
   padding: 20px 0px;
 }
+
 .rit-cover .certification {
   padding: 20px 0px;
   color: #2f2f2f;
 }
+
 .text-link {
   color: #2f2f2f;
 }
+
 .text-link:hover {
   color: #2d73d2;
 }
+
 .rit-cover .education ul li {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
@@ -507,21 +594,26 @@ body {
   padding: 10px 15px;
   font-size: 0.9rem;
 }
+
 .rit-cover .education ul li span {
   font-size: 0.8rem;
 }
+
 .rit-cover .profess-cover {
   padding: 20px 0px;
 }
+
 .rit-cover .profess-cover .prog-row {
   width: 100%;
   text-align: left;
   padding: 8px 2px;
   font-size: 0.9rem;
 }
+
 .rit-cover .profess-cover .prog-row div {
   padding: 0px;
 }
+
 .rit-cover .profess-cover .progress-bar {
   background-color: #2d73d2;
 }
@@ -529,6 +621,7 @@ body {
 .skills {
   margin-bottom: 30px;
 }
+
 .skills ul li {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
