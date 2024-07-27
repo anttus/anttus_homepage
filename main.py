@@ -39,7 +39,7 @@ async def root(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"data": load_data(), "page_view_count": page_view_count},
+        context={"page_view_count": page_view_count},
     )
 
 

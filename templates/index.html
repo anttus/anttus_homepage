@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Anttu Suhonen - DevOps | Cloud</title>
+	<title>Anttu's homepage</title>
 
 	<link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', path='css/fontawsom-all.min.css') }}" />
@@ -24,21 +24,22 @@
 
 <body>
 	<div class="container-fluid overcover">
-		<div class="container header-box">
-			<div class="">
-				<div class="">
-					<h1 class="main-headers">Anttu Suhonen</h1>
-					<h2 class="main-headers">DevOps | Cloud | Software</h2>
-					<hr style="text-align:center;">
-					<div class="main-social">
-						<a class="main-social-link" href="/cv" alt="cv_page"><i></i>CV</a>
-						<a href="{{ data.misc[" linkedin"] }}" target="_blank" alt="linkedin_profile"><i
-								class="main-social-link fab fa-linkedin"></i></a>
-						<a href="{{ data.misc[" github"] }}" target="_blank" alt="github_profile"><i
-								class="main-social-link fab fa-github"></i></a>
-					</div>
-				</div>
+		<div class="header-box">
+			<h1 class="main-headers">Anttu Suhonen</h1>
+			<h2 class="main-headers">DevOps | Cloud | Software</h2>
+			<hr style="text-align:center;">
+			<div class="main-social">
+				<a class="main-social-link" href="/cv">
+					<div>CV</div>
+				</a>
+				<a class="main-social-link" href="https://www.linkedin.com/in/anttu-suhonen" target="_blank">
+					<div>LinkedIn</div>
+				</a>
+				<a class="main-social-link" href="https://github.com/anttus/" target="_blank">
+					<div>GitHub</div>
+				</a>
 			</div>
+			<hr style="text-align:center;">
 		</div>
 </body>
 

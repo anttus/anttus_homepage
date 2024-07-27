@@ -111,18 +111,22 @@ p {
 
 .main-social {
   text-align: center;
+  margin-top: 1em;
 }
 
 .main-social-link {
   color: #2f2f2f;
-  font-size: 30px;
-  padding: 15px;
+  font-size: 35px;
+  padding: 20px;
   width: 10%;
 }
 
 .main-social-link:hover {
-  font-size: 35px;
   color: #2d73d2;
+}
+
+.header-box {
+  margin-top: 1cm;
 }
 
 h1,
@@ -650,4 +654,24 @@ body {
   .adslot {
     display: none !important;
   }
+}
+
+@media print {
+
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
+
+.print-button {
+  margin: 10px;
+  background: none;
+  border: none;
+  color: #f2f2f2;
+  font-size: 15px;
+}
+
+.print-button:hover {
+  color: #73d22d;
 }
