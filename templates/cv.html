@@ -27,17 +27,18 @@
       <div class="row">
         <div class="col-md-4 left-co">
           <div class="left-side">
+
             <div class="profile-info">
               <img src={{ url_for('static', path='images/profile_pic.png' ) }} alt="profile picture" />
-              <h3>Anttu Suhonen</h3>
+              <h3>{{ data.misc["name"] }}</h3>
               <span>DevOps | Cloud</span>
             </div>
+
             <div class="no-print">
               <h4 class="ltitle">Sites</h4>
               <ul class="row social-link no-margin">
                 <li><a href="{{ data.misc[" linkedin"] }}" target="_blank" alt="linkedin_profile"><i
                       class="social-link fab fa-linkedin"></i></a></li>
-
                 <li><a href="{{ data.misc[" github"] }}" target="_blank" alt="github_profile"><i
                       class="social-link fab fa-github"></i></a></li>
               </ul>
@@ -51,6 +52,7 @@
               <i class="icon fas fa-map-marker-alt"></i>
               <div class="detail">{{ data.misc["location"] }}</div>
             </div>
+
             <div class="no-print">
               <h4 class="ltitle">Hobbies</h4>
               <ul class="hobby row no-print">
@@ -68,23 +70,27 @@
                 </li>
               </ul>
             </div>
+
             <div class="no-print">
               <h4 class="ltitle">Save the CV</h4>
               <button class="print-button" onclick="window.print();return false;">Click to print
                 <i class="fas fa-print"></i></button>
             </div>
+
           </div>
         </div>
+
         <div class="col-md-8 rt-div">
           <div class="rit-cover">
             <div class="hotkey">
               <a class="main-social-link" href="/" style="padding: 0px;">
                 <div><ins>
-                    <h1 class="rtitle">Anttu Suhonen</h1>
+                    <h1 class="rtitle">{{ data.misc["name"] }}</h1>
                   </ins></div>
               </a>
               <small>DevOps & Cloud Engineer</small>
             </div>
+
             <h2 class="no-print rit-titl"><img src={{ url_for('static', path='images/favicon-32x32.png' ) }}
                 alt="profile picture" /> Profile</h2>
             <div class="about">
@@ -159,13 +165,14 @@
               </ul>
               {% endfor %}
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
   <footer>
-    <p>&copy; Anttu Suhonen 2024</p>
+    <p id="footerText">&copy; {{ data.misc["name"] }} </p>
   </footer>
 </body>
 

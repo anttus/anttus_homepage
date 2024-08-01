@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function (event) {
+  document.getElementById('footerText').innerHTML += new Date().getFullYear()
+})
+
 function sendData () {
   const navigatorData = {
     language: navigator.language,
