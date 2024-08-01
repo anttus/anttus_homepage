@@ -1,12 +1,12 @@
 /* ===================================== Import Less ================================== */
 @font-face {
-  font-family: "mouse-300";
-  src: url("../fonts/RobotoSlab-Regular.ttf") format("truetype");
+  font-family: 'mouse-300';
+  src: url('../fonts/RobotoSlab-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "mouse-500";
-  src: url("../fonts/RobotoSlab-Bold.ttf") format("truetype");
+  font-family: 'mouse-500';
+  src: url('../fonts/RobotoSlab-Bold.ttf') format('truetype');
 }
 
 /* ===================================== Basic CSS ================================== */
@@ -134,16 +134,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 strong {
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 body {
   background-color: #f7f7ff !important;
-  font-family: "Fira Code", monospace;
+  font-family: 'Fira Code', monospace;
   color: #2f2f2f;
 }
 
@@ -179,7 +179,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 2rem;
-  font-family: "slab", Arial, Helvetica, sans-serif;
+  font-family: 'slab', Arial, Helvetica, sans-serif;
 }
 
 .inner-title p {
@@ -270,7 +270,8 @@ body {
 }
 
 .btn {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
 }
 
@@ -592,7 +593,8 @@ body {
 }
 
 .rit-cover .education ul li {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
   background-color: #ecebeb3d;
   padding: 10px 15px;
@@ -627,7 +629,8 @@ body {
 }
 
 .skills ul li {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
   background-color: #ecebeb3d;
   padding: 10px 15px;
@@ -637,12 +640,6 @@ body {
 
 /* Print */
 @media print {
-  /* body {
-    margin: 0;
-    color: #000;
-    background-color: #000;
-  } */
-
   header,
   footer,
   aside,
@@ -657,7 +654,6 @@ body {
 }
 
 @media print {
-
   .no-print,
   .no-print * {
     display: none !important;
