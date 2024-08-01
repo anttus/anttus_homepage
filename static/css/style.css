@@ -59,11 +59,6 @@ textarea {
   cursor: pointer;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 p {
   margin-bottom: 0px;
   width: 100%;
@@ -111,18 +106,22 @@ p {
 
 .main-social {
   text-align: center;
-  margin-top: 1em;
+  margin: 2em;
 }
 
 .main-social-link {
   color: #2f2f2f;
   font-size: 35px;
-  padding: 20px;
   width: 10%;
 }
 
 .main-social-link:hover {
   color: #2d73d2;
+}
+
+.main-social-link-div {
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .header-box {
@@ -675,4 +674,12 @@ body {
 
 .print-button:hover {
   color: #73d22d;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }

@@ -49,14 +49,15 @@
               <div class="detail">{{ data.misc["email"] }}</div>
             </div>
             <div class="contact-box">
-              <i class="icon fas fa-map-marker-alt"></i><div class="detail">{{ data.misc["location"] }}</div>
+              <i class="icon fas fa-map-marker-alt"></i>
+              <div class="detail">{{ data.misc["location"] }}</div>
             </div>
             <div class="no-print">
               <h4 class="ltitle">Hobbies</h4>
               <ul class="hobby row no-print">
                 <li>
-                    <i class="fas fa-music"></i> <br />
-                    Music
+                  <i class="fas fa-music"></i> <br />
+                  Music
                 </li>
                 <li>
                   <i class="fas fa-swimmer"></i> <br />
@@ -79,7 +80,9 @@
           <div class="rit-cover">
             <div class="hotkey">
               <a class="main-social-link" href="/" style="padding: 0px;">
-                <div><u><h1 class="rtitle">Anttu Suhonen</h1></u></div>
+                <div><ins>
+                    <h1 class="rtitle">Anttu Suhonen</h1>
+                  </ins></div>
               </a>
               <small>DevOps & Cloud Engineer</small>
             </div>
@@ -97,7 +100,7 @@
               <p>
                 <li>
                   <h6><strong>{{ val.title }}</strong><span>{{ val.time }}</span></h6>
-                  <i>{{ val.place }}</i><br />
+                  <i><ins>{{ val.place }}</ins></i><br />
                   {{ val.description }}<br /><br />
                 </li>
               </p>
