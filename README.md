@@ -1,3 +1,3 @@
-# anttus.fi_v2
+# Anttu's homepage
 
 My resume homepage created with Python FastAPI
