@@ -27,11 +27,11 @@ def load_data():
 
 @app.get("/")
 async def root(request: Request):
-    page_view_count = r.get("page_view_count") or 0
+    # page_view_count = r.get("page_view_count") or 0
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"page_view_count": page_view_count},
+        context={},
     )
 
 
