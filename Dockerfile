@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM python:slim-bookworm AS builder
+FROM python:slim-trixie AS builder
 
-LABEL Name="Anttu's homepage" Version="2.1"
+LABEL Name="Anttu's homepage" Version="2.2"
 
-RUN pip install poetry==1.8.3
+RUN pip install poetry==2.2.1
 
 ENV POETRY_NO_INTERACTION=1 \
 	POETRY_VIRTUALENVS_IN_PROJECT=1 \
@@ -17,7 +17,7 @@ COPY pyproject.toml poetry.lock ./
 
 RUN poetry install --only main --no-root && rm -rf ${POETRY_CACHE_DIR}
 
-FROM python:slim-bookworm AS runtime
+FROM python:slim-trixie AS runtime
 
 ENV VIRTUAL_ENV=/.venv \
 	PATH="/.venv/bin:$PATH"
