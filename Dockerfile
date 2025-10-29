@@ -28,4 +28,4 @@ COPY . ./
 
 EXPOSE 5050
 
-CMD [ "gunicorn", "-k", "main.MyUvicornWorker", "main:app", "--config", "gunicorn.config.py", "--access-logfile", "-", "--forwarded-allow-ips", "'*'"]
+CMD [ "gunicorn", "-k", "main.MyUvicornWorker", "main:app", "--config", "gunicorn.config.py", "--access-logfile", "-"]

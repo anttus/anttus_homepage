@@ -4,4 +4,3 @@ requests
 jinja2
 gunicorn
 celery
-redis
