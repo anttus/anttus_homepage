@@ -69,10 +69,9 @@ function siteApp() {
       }
 
       this.error = false;
-      const GIST_URL =
-        "https://api.github.com/gists/d1285d208ef1cb4d54e27561251e38cd";
+      const GIST_ID = "d1285d208ef1cb4d54e27561251e38cd";
 
-      fetch(GIST_URL)
+      fetch(`https://api.github.com/gists/${GIST_ID}`)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
           return res.json();
