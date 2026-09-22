@@ -35,7 +35,7 @@ function siteApp() {
     },
 
     init() {
-      this.fetchGistCV();
+      this.fetchCV();
 
       // Handle browser back/forward buttons
       window.addEventListener("popstate", (event) => {
@@ -62,7 +62,7 @@ function siteApp() {
       }
     },
 
-    fetchGistCV() {
+    fetchCV() {
       if (this.showCV && !this.fetched) {
         this.loading = true;
       }
