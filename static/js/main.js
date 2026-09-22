@@ -16,7 +16,6 @@ function setGreetingByTime() {
     mainHeader.innerHTML = "Good evening!";
   }
 }
-
 function siteApp() {
   return {
     showCV: false,
@@ -25,8 +24,9 @@ function siteApp() {
     errorMessage: "",
     fetched: false,
     data: {
-      misc: {},
-      about: { texts: [] },
+      info: {},
+      links: {},
+      about: { name: "", title: "", texts: [] },
       experience: { header: "", jobs: [] },
       education: { header: "", education: [] },
       certifications: { header: "", data: [] },
@@ -37,10 +37,12 @@ function siteApp() {
     init() {
       this.fetchGistCV();
 
+      // Handle browser back/forward buttons
       window.addEventListener("popstate", (event) => {
         this.showCV = !!(event.state && event.state.page === "cv");
       });
 
+      // Handle deep-linked URLs on initial load (e.g., domain.com/#cv)
       if (window.location.hash === "#cv") {
         this.showCV = true;
       }
@@ -48,7 +50,6 @@ function siteApp() {
 
     openCV() {
       this.showCV = true;
-      // Push history state so the Back button works
       if (window.location.hash !== "#cv") {
         history.pushState({ page: "cv" }, "", "#cv");
       }
@@ -56,49 +57,53 @@ function siteApp() {
 
     closeCV() {
       this.showCV = false;
-      // Push history state to revert URL back to home root
       if (window.location.hash === "#cv") {
         history.pushState({ page: "home" }, "", window.location.pathname);
       }
     },
 
     fetchGistCV() {
-      // Only set loading UI if user clicked CV before prefetch finished
       if (this.showCV && !this.fetched) {
         this.loading = true;
       }
-
       this.error = false;
-      const GIST_ID = "d1285d208ef1cb4d54e27561251e38cd";
 
-      fetch(`https://api.github.com/gists/${GIST_ID}`)
+      // Fetch local cached file generated during Docker build
+      fetch('/static/cv-data.json')
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
           return res.json();
         })
-        .then((payload) => {
-          let rawJsonString = "";
-
-          if (payload && payload.files && typeof payload.files === "object") {
-            const fileKeys = Object.keys(payload.files);
-            if (fileKeys.length === 0)
-              throw new Error("No files found in Gist.");
-            rawJsonString = payload.files[fileKeys[0]].content;
-          } else {
-            throw new Error("Invalid Gist structure.");
-          }
-
-          this.data = JSON.parse(rawJsonString);
+        .then((parsedJson) => {
+          // Direct JSON object payload
+          this.data = parsedJson;
           this.fetched = true;
         })
         .catch((err) => {
           console.error("Fetch error:", err);
           this.error = true;
-          this.errorMessage = err.message;
+          this.errorMessage = "Unable to load CV data.";
         })
         .finally(() => {
           this.loading = false;
         });
     },
+
+    formatTitle(key) {
+      const titleMap = {
+        linkedin: "LinkedIn",
+        github: "GitHub",
+        music1: "Music",
+        music2: "More music"
+      };
+
+      if (titleMap[key.toLowerCase()]) {
+        return titleMap[key.toLowerCase()];
+      }
+
+      return key
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+    }
   };
 }

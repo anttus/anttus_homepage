@@ -38,55 +38,65 @@
 
     <body x-data="siteApp()" x-cloak>
         <!-- ================= MAIN HOME NAVIGATION ================= -->
-        <main x-show="!showCV">
-            <b><h1 class="main-headers" id="main-header">Welcome!</h1></b>
-            <hr style="text-align: center" />
-            <div class="main-social">
-                <div class="main-social-link-div col-12 text-center mb-2">
-                    <!-- Click triggers full-page swap to CV -->
-                    <a
-                        class="main-social-link"
-                        href="#"
-                        @click.prevent="openCV()"
-                        ><ins>CV</ins></a
-                    >
-                </div>
-                <div class="main-social-link-div">
-                    <a
-                        class="main-social-link"
-                        href="https://www.linkedin.com/in/anttu-suhonen"
-                        target="_blank"
-                        ><ins>LinkedIn</ins></a
-                    >
-                </div>
-                <div class="main-social-link-div">
-                    <a
-                        class="main-social-link"
-                        href="https://github.com/anttus/"
-                        target="_blank"
-                        ><ins>GitHub</ins></a
-                    >
-                </div>
-                <div class="main-social-link-div">
-                    <a
-                        class="main-social-link"
-                        style="font-size: 20px"
-                        href="https://soundcloud.com/wind_child/"
-                        target="_blank"
-                        ><ins>Music</ins></a
-                    >
-                </div>
-                <div class="main-social-link-div">
-                    <a
-                        class="main-social-link"
-                        style="font-size: 20px"
-                        href="https://soundcloud.com/friedland-project/"
-                        target="_blank"
-                        ><ins>More music</ins></a
-                    >
+        <main x-show="!showCV" x-cloak>
+            <h1 class="main-headers text-center my-4" id="main-header">
+                Welcome!
+            </h1>
+            <hr class="my-4" />
+
+            <div class="main-social container">
+                <div class="row justify-content-center g-3 text-center">
+                    <!-- Loading State -->
+                    <template x-if="loading">
+                        <div class="col-12 py-3 text-muted">
+                            Loading links...
+                        </div>
+                    </template>
+
+                    <!-- Error State -->
+                    <template x-if="error">
+                        <div
+                            class="col-12 py-3 text-danger"
+                            x-text="errorMessage"
+                        ></div>
+                    </template>
+
+                    <!-- Dynamically Populated Links from Gist -->
+                    <template x-if="!loading && !error">
+                        <div class="w-100">
+                            <!-- CV Trigger Link -->
+                            <div class="col-12 main-social-link-div mb-2">
+                                <a
+                                    class="main-social-link"
+                                    href="#"
+                                    @click.prevent="openCV()"
+                                >
+                                    <ins>CV</ins>
+                                </a>
+                            </div>
+
+                            <!-- Dynamic Links from misc Object -->
+                            <template
+                                x-for="(url, key) in data.links"
+                                :key="key"
+                            >
+                                <div class="col-12 main-social-link-div">
+                                    <a
+                                        class="main-social-link"
+                                        :href="url"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        <ins x-text="formatTitle(key)"></ins>
+                                    </a>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
                 </div>
             </div>
-            <hr style="text-align: center" />
+
+            <hr class="my-4" />
         </main>
 
         <!-- DYNAMIC CV -->
@@ -131,7 +141,7 @@
                                         src="static/images/profile_pic2.png"
                                         alt="profile picture"
                                     />
-                                    <h3 x-text="data.misc.name"></h3>
+                                    <h3 x-text="data.info.name"></h3>
                                     <span>DevOps | Cloud | Platforms</span>
                                 </div>
 
@@ -139,7 +149,7 @@
                                     <h4 class="ltitle">Sites</h4>
                                     <ul class="row social-link no-margin">
                                         <a
-                                            :href="data.misc.linkedin"
+                                            :href="data.links.linkedin"
                                             target="_blank"
                                             alt="linkedin_profile"
                                             ><i
@@ -147,7 +157,7 @@
                                             ></i
                                         ></a>
                                         <a
-                                            :href="data.misc.github"
+                                            :href="data.links.github"
                                             target="_blank"
                                             alt="github_profile"
                                             ><i
@@ -161,14 +171,14 @@
                                 <div class="contact-box pb0">
                                     <div
                                         class="detail"
-                                        x-text="data.misc.email"
+                                        x-text="data.info.email"
                                     ></div>
                                 </div>
                                 <div class="contact-box">
                                     <i class="icon fas fa-map-marker-alt"></i>
                                     <div
                                         class="detail"
-                                        x-text="data.misc.location"
+                                        x-text="data.info.location"
                                     ></div>
                                 </div>
 
@@ -214,32 +224,21 @@
                         <div class="col-md-8 rt-div">
                             <div class="rit-cover">
                                 <div class="hotkey">
-                                    <a
-                                        class="main-social-link"
-                                        href="#"
-                                        @click.prevent="closeCV()"
-                                        style="padding: 0px"
-                                    >
-                                        <div>
-                                            <ins
-                                                ><h1
-                                                    class="rtitle"
-                                                    x-text="data.misc.name"
-                                                ></h1
-                                            ></ins>
-                                        </div>
+                                    <a class="main-social-link title-link" href="#" @click.prevent="closeCV()" style="padding: 0px" >
+                                        <ins ><h3 class="rtitle" x-text="data.info.name" ></h3 ></ins>
                                     </a>
-                                    <medium>Platforms Engineer</medium>
+                                    <!--<medium x-text="data.info.title"></medium>-->
                                 </div>
+                            </div>
 
                                 <!-- Profile / About Section -->
-                                <h2 class="no-print rit-titl">
+                                <h4 class="no-print rit-titl">
                                     <img
                                         src="static/images/favicon-32x32.png"
                                         alt="profile picture"
                                     />
                                     Profile
-                                </h2>
+                                </h4>
                                 <div class="about">
                                     <section class="textlist text-left">
                                         <p>
@@ -256,13 +255,14 @@
                                 </div>
 
                                 <!-- Work Experience Section -->
-                                <h2 class="rit-titl">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span
-                                        x-text="data.experience.header"
-                                    ></span>
-                                </h2>
                                 <div class="work-exp">
+                                    <br>
+                                    <h4 class="rit-titl">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span
+                                            x-text="data.experience.header"
+                                        ></span>
+                                    </h4>
                                     <template
                                         x-for="job in data.experience.jobs"
                                     >
@@ -284,11 +284,12 @@
                                 </div>
 
                                 <!-- Education Section -->
-                                <h2 class="rit-titl">
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <span x-text="data.education.header"></span>
-                                </h2>
                                 <div class="education">
+                                    <br>
+                                    <h4 class="rit-titl">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span x-text="data.education.header"></span>
+                                    </h4>
                                     <ul class="row no-margin">
                                         <template
                                             x-for="edu in data.education.education"
@@ -305,13 +306,14 @@
                                 </div>
 
                                 <!-- Certifications Section -->
-                                <h2 class="rit-titl">
-                                    <i class="fas fa-certificate"></i>
-                                    <span
-                                        x-text="data.certifications.header"
-                                    ></span>
-                                </h2>
                                 <div class="certification">
+                                    <br>
+                                    <h4 class="rit-titl">
+                                        <i class="fas fa-certificate"></i>
+                                        <span
+                                            x-text="data.certifications.header"
+                                        ></span>
+                                    </h4>
                                     <ul class="row no-margin">
                                         <template
                                             x-for="cert in data.certifications.data"
@@ -330,11 +332,12 @@
                                 </div>
 
                                 <!-- Projects Section -->
-                                <h2 class="rit-titl">
-                                    <i class="fas fa-certificate"></i>
-                                    <span x-text="data.projects.header"></span>
-                                </h2>
                                 <div class="project">
+                                    <br>
+                                    <h4 class="rit-titl">
+                                        <i class="fas fa-certificate"></i>
+                                        <span x-text="data.projects.header"></span>
+                                    </h4>
                                     <ul class="row no-margin">
                                         <template
                                             x-for="proj in data.projects.data"
@@ -360,11 +363,12 @@
                                 </div>
 
                                 <!-- Skills Section -->
-                                <h2 class="rit-titl">
-                                    <i class="fas fa-users-cog"></i>
-                                    <span x-text="data.skills.header"></span>
-                                </h2>
                                 <div class="skills">
+                                    <br>
+                                    <h4 class="rit-titl">
+                                        <i class="fas fa-users-cog"></i>
+                                        <span x-text="data.skills.header"></span>
+                                    </h4>
                                     <template
                                         x-for="group in data.skills.skills"
                                     >
@@ -391,7 +395,7 @@
 
         <footer>
             <p id="footerText">
-                &copy; <span x-text="data.misc.name || 'Anttu Suhonen'"></span>
+                &copy; <span x-text="data.info.name"></span>
             </p>
         </footer>
     </body>
