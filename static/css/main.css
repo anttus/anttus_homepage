@@ -2,10 +2,32 @@
     display: none !important;
 }
 
+:root {
+    /* Core Palette */
+    --primary: #124d1c;
+    --primary-hover: #e4b028;
+    --accent: #FE7F2D;
+
+    /* Backgrounds & Neutral Surfaces */
+    --bg-main: #f7f7ff;
+    --bg-card: #ffffff;
+    --bg-muted: #EAECF0;
+
+    /* Typography Colors */
+    --text-main: #0f1729;
+    --text-muted: #747f8a;
+    --text-light: #f8fafc;
+
+    /* Borders & Shadows */
+    --border-color: #cccccc;
+    --box-shadow:
+        0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 body {
-    background-color: #f7f7ff !important;
+    background-color: #ebede3 !important;
     font-family: "Fira Code", monospace;
-    color: #0f1729;
+    color: var(--text-main);
     margin: 0;
     padding: 0;
     line-height: 2rem;
@@ -40,13 +62,13 @@ ul {
 a {
     text-decoration: none;
     outline: none;
-    color: #f8fafc;
+    color: var(--bg-main);
     transition: color 0.2s ease-in-out;
 }
 
 a:hover,
 a:focus {
-    color: #20d3ee;
+    color: var(--primary-hover);
     text-decoration: none;
     outline: none;
 }
@@ -82,7 +104,7 @@ a:focus {
 }
 
 ::placeholder {
-    color: #747f8a !important;
+    color: var(--text-muted) !important;
     font-size: 1rem;
     opacity: 0.7 !important;
 }
@@ -102,34 +124,34 @@ a:focus {
 }
 
 .btn-success {
-    background-color: #2463eb;
-    border-color: #0f1729;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-success:hover,
 .btn-success:active,
 .btn-success:focus {
-    background-color: #0f1729 !important;
-    border-color: #0f1729 !important;
+    background-color: var() !important;
+    border-color: var() !important;
     box-shadow: none !important;
 }
 
 .btn-info {
-    background-color: #f8fafc;
-    border-color: #f8fafc;
+    background-color: var(--bg-main);
+    border-color: var(--bg-main);
 }
 
 .btn-info:hover,
 .btn-info:active,
 .btn-info:focus {
-    background-color: #f8fafc !important;
-    border-color: #f8fafc !important;
+    background-color: var(--bg-main) !important;
+    border-color: var(--bg-main) !important;
     box-shadow: none !important;
 }
 
 .btn-light {
-    background-color: #fff;
-    color: #3f3f3f;
+    background-color: var(--bg-main);
+    color: var(--primary);
 }
 
 .form-control {
@@ -139,8 +161,8 @@ a:focus {
 }
 
 .form-control:focus {
-    background-color: #fff;
-    border: 2px solid #2463eb !important;
+    background-color: var(--bg-main);
+    border: 2px solid var(--primary) !important;
     box-shadow: none !important;
 }
 
@@ -164,7 +186,7 @@ a:focus {
     box-shadow:
         0 2px 5px 0 rgba(0, 0, 0, 0.16),
         0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    background-color: #fff;
+    background-color: var(--bg-main);
     padding-left: 40px;
     padding-right: 20px;
     border-radius: 6px;
@@ -185,8 +207,8 @@ a:focus {
 
 /* Left Sidebar */
 .profile-box .left-side {
-    background-color: #2463eb;
-    color: #f8fafc;
+    background-color: var(--primary);
+    color: var(--bg-main);
     padding: 1.5rem;
     border-radius: 0 0 10px 10px;
 }
@@ -196,12 +218,12 @@ a:focus {
     box-shadow:
         0 2px 5px 0 rgba(0, 0, 0, 0.16),
         0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    background-color: #fff;
+    background-color: var(--bg-main);
     width: 100%;
     max-width: 220px;
     margin: 0 auto 1.5rem auto;
     border-radius: 4px;
-    color: #444;
+    color: var(--text-main);
     text-align: center;
 }
 
@@ -218,7 +240,7 @@ a:focus {
 .profile-box .left-side .ltitle {
     padding: 0.75rem;
     font-size: 1.4rem;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--bg-main);
 }
 
 .profile-box .left-side .contact-box {
@@ -229,7 +251,7 @@ a:focus {
 
 .profile-box .left-side .contact-box .icon i {
     padding: 0.6rem;
-    border: 1px solid #fff;
+    border: 1px solid var(--bg-main);
     border-radius: 50%;
     width: 42px;
     height: 42px;
@@ -262,7 +284,7 @@ a:focus {
 }
 
 .fab {
-    color: #f8fafc;
+    color: var(--bg-main);
     font-size: 1.5rem;
 }
 
@@ -270,13 +292,13 @@ a:focus {
 .rit-cover .hotkey h1 {
     width: 100%;
     text-align: center;
-    color: #4d4d4d;
+    color: var(--primary);
     font-size: 1.5rem;
 }
 
 .rit-cover .hotkey small {
     font-size: 1.1rem;
-    color: #9c9898;
+    color: var(--text-muted);
     margin-top: -20px;
     font-weight: 600;
 }
@@ -306,23 +328,23 @@ a:focus {
 .rit-cover .about .btn-link li {
     padding: 0.4rem 1.1rem;
     border-radius: 20px;
-    border: 1px solid #888;
-    color: #888;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
     font-size: 1rem;
 }
 
 .rit-cover .about .btn-link li a {
-    color: #888;
+    color: var(--text-muted);
 }
 
 .text-link,
 .text-link:link,
 .text-link:visited {
-    color: #0f1729;
+    color: var(--text-muted);
 }
 
 .text-link:hover {
-    color: #2463eb;
+    color: var(--primary-hover);
 }
 
 .work-exp {
@@ -357,7 +379,7 @@ a:focus {
 }
 
 .rit-cover .profess-cover .progress-bar {
-    background-color: #2463eb;
+    background-color: var(--primary);
 }
 
 .main-headers {
@@ -382,7 +404,7 @@ a:focus {
 }
 
 .main-social-link {
-    color: #0f1729;
+    color: var();
     font-size: 2rem;
     display: inline-block;
     transition: color 0.2s ease-in-out;
@@ -394,7 +416,7 @@ a:focus {
 
 .main-social-link:hover,
 .social-link:hover {
-    color: #20d3ee;
+    color: var(--primary-hover);
 }
 
 .social-link {
@@ -409,7 +431,7 @@ a:focus {
 .page-nav h2,
 .page-nav ul li a,
 .page-nav ul li i {
-    color: #444;
+    color: var(--text-main);
 }
 
 /* Print & Footer */
@@ -428,7 +450,7 @@ a:focus {
         display: none !important;
     }
     body {
-        background-color: #fff !important;
+        background-color: var(--bg-main) !important;
         font-size: 1rem;
     }
     .profile-box {
@@ -441,13 +463,13 @@ a:focus {
     margin: 10px;
     background: none;
     border: none;
-    color: #f8fafc;
-    font-size: 1.05rem;
+    color: var(--bg-main);
+    font-size: 1.3rem;
     cursor: pointer;
 }
 
 .print-button:hover {
-    color: #20d3ee;
+    color: var(--primary-hover);
 }
 
 footer {
