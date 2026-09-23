@@ -24,6 +24,16 @@
         0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: #0f1729;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+  }
+}
+
 body {
     background-color: #ebede3 !important;
     font-family: "Fira Code", monospace;
