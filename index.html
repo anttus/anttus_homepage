@@ -141,8 +141,11 @@
                                         src="static/images/profile_pic2.png"
                                         alt="profile picture"
                                     />
-                                    <h3 x-text="data.info.name"></h3>
-                                    <span>DevOps | Cloud | Platforms</span>
+                                    <div class="profile-info-text">
+                                        <strong x-text="data.info.name"></strong>
+                                        <br>
+                                        <span>DevOps | Cloud | Platforms</span>
+                                    </div>
                                 </div>
 
                                 <div class="no-print">
@@ -393,10 +396,6 @@
             </div>
         </div>
 
-        <footer>
-            <p id="footerText">
-                &copy; <span x-text="data.info.name"></span>
-            </p>
-        </footer>
+        <footer id="footerText">&copy; <span x-text="data.info.name"></span> </footer>
     </body>
 </html>

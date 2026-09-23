@@ -6,12 +6,12 @@
     /* Core Palette */
     --primary: #124d1c;
     --primary-hover: #e4b028;
-    --accent: #FE7F2D;
+    --accent: #fe7f2d;
 
     /* Backgrounds & Neutral Surfaces */
     --bg-main: #f7f7ff;
     --bg-card: #ffffff;
-    --bg-muted: #EAECF0;
+    --bg-muted: #eaecf0;
 
     /* Typography Colors */
     --text-main: #0f1729;
@@ -25,13 +25,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg-main: #0f1729;
-    --bg-card: #1e293b;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-  }
+    :root {
+        --bg-main: #0f1729;
+        --bg-card: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+    }
 }
 
 body {
@@ -219,28 +219,27 @@ a:focus {
 .profile-box .left-side {
     background-color: var(--primary);
     color: var(--bg-main);
-    padding: 1.5rem;
+    padding: 2.5rem;
     border-radius: 0 0 10px 10px;
 }
 
 .profile-box .left-side .profile-info {
-    padding-bottom: 0.5rem;
     box-shadow:
         0 2px 5px 0 rgba(0, 0, 0, 0.16),
         0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    background-color: var(--bg-main);
+    background-color: var(--accent);
     width: 100%;
-    max-width: 220px;
     margin: 0 auto 1.5rem auto;
-    border-radius: 4px;
+    border-radius: 5px;
+    max-width: 220px;
     color: var(--text-main);
     text-align: center;
+    color: var(--text-light);
+    padding-bottom: 1rem;
 }
 
 .profile-box .left-side .profile-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0;
-    padding: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .profile-box .left-side .profile-info span {
@@ -248,7 +247,7 @@ a:focus {
 }
 
 .profile-box .left-side .ltitle {
-    padding: 0.75rem;
+    padding: 1rem;
     font-size: 1.4rem;
     border-bottom: 1px solid var(--bg-main);
 }
@@ -350,7 +349,7 @@ a:focus {
 .text-link,
 .text-link:link,
 .text-link:visited {
-    color: var(--text-muted);
+    color: var(--text-main);
 }
 
 .text-link:hover {
@@ -418,10 +417,12 @@ a:focus {
     font-size: 2rem;
     display: inline-block;
     transition: color 0.2s ease-in-out;
+    color: var(--text-main);
 }
 
 .main-social-link-div {
     padding: 0.5rem 0;
+    color: var(--text-main);
 }
 
 .main-social-link:hover,
@@ -467,6 +468,8 @@ a:focus {
         box-shadow: none !important;
         width: 100% !important;
     }
+    .profile-info {
+    }
 }
 
 .print-button {
@@ -483,7 +486,7 @@ a:focus {
 }
 
 footer {
-    padding: 1.25rem;
+    font-size: 1.2rem;
+    padding: 1.5rem;
     text-align: center;
-    font-size: 1.05rem;
 }
