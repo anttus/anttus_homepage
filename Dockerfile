@@ -2,7 +2,7 @@ FROM --platform=linux/amd64 nginx:alpine
 
 ARG GIST_ID=d1285d208ef1cb4d54e27561251e38cd
 
-LABEL Name="Anttu's homepage" Version="3.0"
+LABEL Name="Anttu's homepage" Version="3.0.0"
 
 COPY index.html /usr/share/nginx/html/index.html
 COPY static/ /usr/share/nginx/html/static/
