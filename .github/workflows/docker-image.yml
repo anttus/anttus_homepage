@@ -15,7 +15,7 @@ jobs:
       - name: Read version from Dockerfile
         id: get_version
         run: |
-          VERSION=$(grep -i "LABEL version=" Dockerfile | head -n 1 | cut -d'"' -f2)
+          VERSION=$(grep -i "LABEL org.opencontainers.image.version=" Dockerfile | head -n 1 | cut -d'"' -f2)
           echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
 
       - name: Extract Docker metadata
