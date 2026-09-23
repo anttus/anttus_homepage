@@ -8,6 +8,7 @@ body {
     color: #0f1729;
     margin: 0;
     padding: 0;
+    line-height: 2rem;
 }
 
 h1,
@@ -20,14 +21,7 @@ strong {
     font-family: "Fira Code", monospace;
 }
 
-/* Hard cap on h1 to respect 1.5rem limit */
-h1 {
-    font-size: 1.5rem;
-}
-
 p {
-    margin-bottom: 0;
-    width: 100%;
     font-size: 1.4rem;
     line-height: 1.5;
 }
