@@ -467,6 +467,12 @@ a:focus {
         background-color: var(--bg-main) !important;
         font-size: 1rem;
     }
+    .about {
+        font-size: 1rem;
+    }
+    .skillgroup {
+        font-size: 1rem;
+    }
     .profile-box {
         box-shadow: none !important;
         width: 100% !important;
