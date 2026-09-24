@@ -4,12 +4,12 @@
 
 :root {
     /* Core Palette */
-    --primary: #124d1c;
-    --primary-hover: #e4b028;
-    --accent: #fe7f2d;
+    --primary: #10375C;
+    --primary-hover: #EB8317;
+    --accent: #F3C623;
 
     /* Backgrounds & Neutral Surfaces */
-    --bg-main: #f7f7ff;
+    --bg-main: #F4F6FF;
     --bg-card: #ffffff;
     --bg-muted: #eaecf0;
 
@@ -125,7 +125,7 @@ a:focus {
         0 3px 1px -2px rgba(0, 0, 0, 0.2),
         0 2px 2px 0 rgba(0, 0, 0, 0.14),
         0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 1.1rem;
 }
 
@@ -223,6 +223,10 @@ a:focus {
     border-radius: 0 0 10px 10px;
 }
 
+.profile-info-text {
+    text-align: center;
+}
+
 .profile-box .left-side .profile-info {
     box-shadow:
         0 2px 5px 0 rgba(0, 0, 0, 0.16),
@@ -232,10 +236,9 @@ a:focus {
     margin: 0 auto 1.5rem auto;
     border-radius: 5px;
     max-width: 220px;
-    color: var(--text-main);
     text-align: center;
     color: var(--text-light);
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 .profile-box .left-side .profile-info h3 {
@@ -467,8 +470,6 @@ a:focus {
     .profile-box {
         box-shadow: none !important;
         width: 100% !important;
-    }
-    .profile-info {
     }
 }
 
